@@ -11,7 +11,7 @@ const { regExp } = require('./utils/regExp');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-const { PORT = 3001, DB_URL = 'mongodb://127.0.0.1:27017/mestodb' } = process.env;
+const { PORT = 3000, DB_URL = 'mongodb://127.0.0.1:27017/mestodb' } = process.env;
 mongoose.connect(DB_URL);
 app.post('/signup', celebrate({
   body: Joi.object().keys({
