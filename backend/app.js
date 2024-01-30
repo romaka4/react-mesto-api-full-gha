@@ -37,6 +37,6 @@ app.use('*', (req, res, next) => {
 app.use(errors());
 app.use(require('./middlewares/handle-errors'));
 
-app.listen(PORT, () =>{
+app.listen(PORT, () => {
   console.log(`server listen port ${PORT}`);
 });
