@@ -1,0 +1,16 @@
+.footer__copirate {
+  display: inline-block;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  color: #545454;
+  margin: 67px 0 60px;
+}
+@media screen and (max-width: 767px) {
+  .footer__copirate{
+    margin: 48px 0 36px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+  }
+}

@@ -1,0 +1,28 @@
+.form__item {
+  border: none;
+  border-bottom: 1px solid #00000033;
+  width: 100%;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #000000;
+  padding: 2px 0 10px;
+ 
+  margin-bottom: 5px;
+}
+.form__item:not(:last-child) {
+  margin-top: 5px;
+}
+
+/* .form__item:not(:last-of-type){
+  margin-bottom: 20px;
+} */
+@media screen and (max-width: 767px) {
+  .form__item {
+    padding: 8px 0;
+  }
+  .form__item:not(:last-of-type){
+    margin-bottom: 22px;
+  } 
+  
+}
