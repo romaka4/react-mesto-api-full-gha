@@ -1,7 +1,6 @@
 export const BASE_URL = ''
 
 export const register = (password, email) => {
-  console.log('edde');
   console.log(`${BASE_URL}/signup`);
   return fetch(`${BASE_URL}/signup`, {
     method: 'POST',
