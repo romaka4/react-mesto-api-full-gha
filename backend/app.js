@@ -3,7 +3,7 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const { celebrate, Joi, errors } = require('celebrate');
-const helmet = require('helmet');
+// const helmet = require('helmet');
 const bodyParser = require('body-parser');
 
 const { requestLogger, errorLogger } = require('./middlewares/logger');
@@ -21,7 +21,7 @@ const allowedCors = {
   ],
 };
 app.use(cors(allowedCors));
-app.use(helmet());
+// app.use(helmet());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 const { PORT = 3000, DB_URL = 'mongodb://127.0.0.1:27017/mestodb' } = process.env;
