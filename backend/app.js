@@ -1,12 +1,12 @@
 const express = require('express');
-const mongoose = require('mongoose');
+const app = express();
 const cors = require('cors');
+app.use(cors());
+const mongoose = require('mongoose');
 const { celebrate, Joi, errors } = require('celebrate');
 const helmet = require('helmet');
 const bodyParser = require('body-parser');
 
-const app = express();
-app.use(cors());
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 const { createUser, login } = require('./controllers/users');
 const auth = require('./middlewares/auth');
