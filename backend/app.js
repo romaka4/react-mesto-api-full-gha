@@ -1,6 +1,6 @@
 const express = require('express');
 
-// const cors = require('cors');
+const cors = require('cors');
 const mongoose = require('mongoose');
 const { celebrate, Joi, errors } = require('celebrate');
 const helmet = require('helmet');
@@ -13,14 +13,14 @@ const NotFoundError = require('./errors/not-found-err');
 const { regExp } = require('./utils/regExp');
 
 const app = express();
-// app.use(cors());
+app.use(cors());
 app.use(helmet());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 const { PORT = 3005, DB_URL = 'mongodb://127.0.0.1:27017/mestodb' } = process.env;
 mongoose.connect(DB_URL);
 app.use(requestLogger);
-app.post('/signup', celebrate({
+app.post('/signup', cors(), celebrate({
   body: Joi.object().keys({
     name: Joi.string().min(2).max(30),
     about: Joi.string().min(2).max(30),
@@ -29,7 +29,7 @@ app.post('/signup', celebrate({
     password: Joi.string().required(),
   }),
 }), createUser);
-app.post('/signin', celebrate({
+app.post('/signin', cors(), celebrate({
   body: Joi.object().keys({
     email: Joi.string().required().email(),
     password: Joi.string().required(),
