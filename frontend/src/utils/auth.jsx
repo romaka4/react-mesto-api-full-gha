@@ -1,7 +1,14 @@
-export const BASE_URL = ''
+export const BASE_URL = 'http://localhost:3005'
 
 export const register = (password, email) => {
-  console.log(`${BASE_URL}/signup`);
+  console.log(fetch(`${BASE_URL}/signup`, {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({password, email })
+  }));
   return fetch(`${BASE_URL}/signup`, {
     method: 'POST',
     headers: {

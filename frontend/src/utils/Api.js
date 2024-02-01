@@ -91,7 +91,7 @@ export class Api {
   }
 }
 const api = new Api ({
-  url: '',
+  url: 'http://localhost:3005',
   headers: {
     'Content-Type': 'application/json'
   }
