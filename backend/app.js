@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 
 const app = express();
-
+const { requestLogger, errorLogger } = require('./middlewares/logger'); 
 const { createUser, login } = require('./controllers/users');
 const auth = require('./middlewares/auth');
 const NotFoundError = require('./errors/not-found-err');
@@ -19,6 +19,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 const { PORT = 3005, DB_URL = 'mongodb://127.0.0.1:27017/mestodb' } = process.env;
 mongoose.connect(DB_URL);
 app.use(cors());
+app.use(requestLogger);
 app.post('/signup', celebrate({
   body: Joi.object().keys({
     name: Joi.string().min(2).max(30),
@@ -40,6 +41,7 @@ app.use('/cards', auth, require('./routes/cards'));
 app.use('*', (req, res, next) => {
   next(new NotFoundError('Страница не найдена'));
 });
+app.use(errorLogger);
 app.use(errors());
 app.use(require('./middlewares/handle-errors'));
 
