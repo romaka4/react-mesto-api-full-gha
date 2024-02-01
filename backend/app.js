@@ -27,7 +27,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 const { PORT = 3000, DB_URL = 'mongodb://127.0.0.1:27017/mestodb' } = process.env;
 mongoose.connect(DB_URL);
 app.use(requestLogger);
-app.post('/signup', cors(), celebrate({
+app.post('/signup', celebrate({
   body: Joi.object().keys({
     name: Joi.string().min(2).max(30),
     about: Joi.string().min(2).max(30),
@@ -36,7 +36,7 @@ app.post('/signup', cors(), celebrate({
     password: Joi.string().required(),
   }),
 }), createUser);
-app.post('/signin', cors(), celebrate({
+app.post('/signin', celebrate({
   body: Joi.object().keys({
     email: Joi.string().required().email(),
     password: Joi.string().required(),
