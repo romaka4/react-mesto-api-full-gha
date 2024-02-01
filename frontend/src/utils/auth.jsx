@@ -1,7 +1,6 @@
 export const BASE_URL = 'https://api.kachmaz.nomoredomainsmonster.ru'
 
 export const register = (password, email) => {
-  console.log(`${BASE_URL}/signup`);
   return fetch(`${BASE_URL}/signup`, {
     method: 'POST',
     headers: {

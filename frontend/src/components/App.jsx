@@ -62,7 +62,6 @@ function App() {
     })
   }
   React.useEffect(() => {
-    console.log(loggedIn);
     if (loggedIn) {
     api.getProfile()
     .then((res) => {
@@ -78,7 +77,6 @@ function App() {
   function handleTokenCheck() {
       const token = localStorage.getItem('token');
     if (token) {
-      console.log('проверяю токен');
       auth.checkToken(token)
       .then((res) => {
         console.log(res);
