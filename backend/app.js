@@ -17,6 +17,7 @@ const allowedCors = {
   origin: [
     'https://kachmaz.nomoredomainsmonster.ru',
     'http://kachmaz.nomoredomainsmonster.ru',
+    'http://localhost:3000',
   ],
 };
 app.use(cors(allowedCors));

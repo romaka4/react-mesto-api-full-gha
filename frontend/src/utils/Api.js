@@ -91,7 +91,7 @@ export class Api {
   }
 }
 const api = new Api ({
-  url: 'https://api.kachmaz.nomoredomainsmonster.ru',
+  url: 'http://localhost:3000',
   headers: {
     'Content-Type': 'application/json'
   }
