@@ -19,7 +19,6 @@ const allowedCors = [
   'http://kachmaz.nomoredomainsmonster.ru',
   'http://api.kachmaz.nomoredomainsmonster.ru',
 ];
-app.options('*', cors(allowedCors));
 app.use(cors(allowedCors));
 app.use(helmet());
 app.use(bodyParser.json());
