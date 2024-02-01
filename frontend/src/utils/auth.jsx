@@ -1,6 +1,7 @@
-export const BASE_URL = 'https://auth.nomoreparties.co'
+export const BASE_URL = 'http://localhost:3005'
 
 export const register = (password, email) => {
+  console.log('edde');
   return fetch(`${BASE_URL}/signup`, {
     method: 'POST',
     headers: {
@@ -10,6 +11,7 @@ export const register = (password, email) => {
     body: JSON.stringify({password, email })
   })
   .then((response) => {
+    console.log(response);
     return response.json();
   })
   .then((res) => {
@@ -45,6 +47,7 @@ export const authorize = (email, password) => {
   });
 };
 export function checkToken (token) {
+  console.log(token);
   return fetch(`${BASE_URL}/users/me`, {
     method: 'GET',
     headers: {

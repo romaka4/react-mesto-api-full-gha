@@ -77,23 +77,27 @@ function App() {
   function handleTokenCheck() {
       const token = localStorage.getItem('token');
     if (token) {
+      console.log('проверяю токен');
       auth.checkToken(token)
       .then((res) => {
-        setEmail(res.data.email);
+        console.log(res);
+        setEmail(res.email);
         handleLogin();
         navigate('/', {replace: true});
       })
     }
   }
   React.useEffect(() => {
+    if (loggedIn) {
     api.getCards()
     .then((res) => {
-      setCards(res);
+      setCards(res.reverse());
+      
     })
     .catch((err) => { 
       console.log(`${err}`);
     })
-  }, [])
+}}, [loggedIn])
   function handleSignOut() {
     setEmail('');
     localStorage.removeItem('token');

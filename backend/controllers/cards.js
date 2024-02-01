@@ -4,6 +4,7 @@ const NotFoundError = require('../errors/not-found-err');
 
 module.exports.getCards = (req, res, next) => {
   Card.find({})
+    .populate(['owner', 'likes'])
     .then((cards) => res.send(cards))
     .catch(next);
 };
@@ -11,6 +12,7 @@ module.exports.createCard = (req, res, next) => {
   const { name, link } = req.body;
   const owner = req.user._id;
   Card.create({ name, link, owner })
+    .then((card) => card.populate(['owner', 'likes']))
     .then((card) => res.status(201).send(card))
     .catch(next);
 };
@@ -37,6 +39,7 @@ module.exports.likeCard = (req, res, next) => {
     { $addToSet: { likes: req.user._id } },
     { new: true },
   )
+    .populate(['owner', 'likes'])
     .orFail(new NotFoundError('Карточка с указанным _id не найдена'))
     .then((card) => {
       res.send(card);
@@ -49,6 +52,7 @@ module.exports.dislikeCard = (req, res, next) => {
     { $pull: { likes: req.user._id } },
     { new: true },
   )
+    .populate(['owner', 'likes'])
     .orFail(new NotFoundError('Карточка с указанным _id не найдена'))
     .then((card) => {
       res.send(card);
