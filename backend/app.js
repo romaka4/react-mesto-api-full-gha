@@ -18,7 +18,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 const { PORT = 3005, DB_URL = 'mongodb://127.0.0.1:27017/mestodb' } = process.env;
 mongoose.connect(DB_URL);
-app.use(cors({origin: ['https://api.kachmaz.nomoredomainsmonster.ru']}));
+app.use(cors());
 app.use(requestLogger);
 app.post('/signup', celebrate({
   body: Joi.object().keys({
