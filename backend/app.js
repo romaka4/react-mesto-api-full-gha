@@ -17,14 +17,14 @@ const allowedCors = {
   origin: [
     'https://kachmaz.nomoredomainsmonster.ru',
     'http://kachmaz.nomoredomainsmonster.ru',
-    'http://localhost:3000',
+    'http://localhost:3005',
   ],
 };
 app.use(cors(allowedCors));
 app.use(helmet());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-const { PORT = 3000, DB_URL = 'mongodb://127.0.0.1:27017/mestodb' } = process.env;
+const { PORT = 3005, DB_URL = 'mongodb://127.0.0.1:27017/mestodb' } = process.env;
 mongoose.connect(DB_URL);
 app.use(requestLogger);
 app.post('/signup', celebrate({
