@@ -176,7 +176,6 @@ function App() {
     })
   }
   const handleLogin = () => {
-    setLoggedIn(true);
     api.getProfile()
     .then((res) => {
       setCurrentUser(res);
@@ -184,6 +183,7 @@ function App() {
     .catch((err) => { 
       console.log(`${err}`);
     })
+    setLoggedIn(true);
   }
   return (
     < CurrentUserContext.Provider value={currentUser} >
