@@ -48,8 +48,8 @@ function App() {
   }
   function handleRegister(email, password) {
     auth.register(email, password)
-    .then((res) =>{
-      setLoggedIn(!res.error)
+    .then(() =>{
+      // setLoggedIn(!res.error)
       setLoginStatus(true);
       setTextLoginStatus('Вы успешно зарегистрировались!')
       setLogoLoginStatus(responceOk);

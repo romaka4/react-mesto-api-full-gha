@@ -1,4 +1,4 @@
-export const BASE_URL = 'http://localhost:3005'
+export const BASE_URL = 'http://localhost:5173'
 
 export const register = (password, email) => {
   return fetch(`${BASE_URL}/signup`, {
@@ -8,7 +8,6 @@ export const register = (password, email) => {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({password, email }),
-    mode: "no-cors",
   })
   .then((response) => {
     console.log(response);
@@ -47,8 +46,6 @@ export const authorize = (email, password) => {
   });
 };
 export function checkToken (token) {
-  console.log(token);
-  console.log(BASE_URL);
   return fetch(`${BASE_URL}/users/me`, {
     method: 'GET',
     headers: {
