@@ -64,5 +64,5 @@ app.use(errors());
 app.use(require('./middlewares/handle-errors'));
 
 app.listen(PORT, () => {
-  console.log(`server listen порт ${PORT}`);
+  console.log(`server listen port ${PORT}`);
 });
