@@ -16,6 +16,7 @@ const { regExp } = require('./utils/regExp');
 const app = express();
 const allowedCors = {
   origin: [
+    'https://api.kachmaz.nomoredomainsmonster.ru',
     'https://kachmaz.nomoredomainsmonster.ru',
     'http://kachmaz.nomoredomainsmonster.ru',
     'http://localhost:3000',
