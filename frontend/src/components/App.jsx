@@ -177,6 +177,13 @@ function App() {
   }
   const handleLogin = () => {
     setLoggedIn(true);
+    api.getProfile()
+    .then((res) => {
+      setCurrentUser(res);
+    })
+    .catch((err) => { 
+      console.log(`${err}`);
+    })
   }
   return (
     < CurrentUserContext.Provider value={currentUser} >
