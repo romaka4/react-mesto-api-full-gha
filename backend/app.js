@@ -19,7 +19,7 @@ const allowedCors = {
     'https://api.kachmaz.nomoredomainsmonster.ru',
     'https://kachmaz.nomoredomainsmonster.ru',
     'http://kachmaz.nomoredomainsmonster.ru',
-    'http://localhost:3000',
+    'http://localhost:3003',
     'http://localhost:5173',
   ],
 };
