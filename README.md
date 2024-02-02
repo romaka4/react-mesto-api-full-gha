@@ -9,7 +9,7 @@
 
 ## Ссылки на проект
 
-IP 130.193.52.55
+IP 130.193.52.55 
 
 Frontend https://kachmaz.nomoredomainsmonster.ru
 
