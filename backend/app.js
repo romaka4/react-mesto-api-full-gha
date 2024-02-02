@@ -13,14 +13,14 @@ const NotFoundError = require('./errors/not-found-err');
 const { regExp } = require('./utils/regExp');
 
 const app = express();
-const allowedCors = {
-  origin: [
-    'https://kachmaz.nomoredomainsmonster.ru',
-    'http://kachmaz.nomoredomainsmonster.ru',
-    'http://localhost:3005',
-  ],
-};
-app.use(cors(allowedCors));
+// const allowedCors = {
+//   origin: [
+//     'https://kachmaz.nomoredomainsmonster.ru',
+//     'http://kachmaz.nomoredomainsmonster.ru',
+//     'http://localhost:3005',
+//   ],
+// };
+app.use(cors());
 app.use(helmet());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
